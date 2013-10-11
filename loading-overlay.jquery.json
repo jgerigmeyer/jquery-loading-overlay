@@ -1,0 +1,27 @@
+{
+  "name": "loading-overlay",
+  "title": "Loading Overlay",
+  "description": "jQuery Loading Overlay Plugin",
+  "version": "1.0.0",
+  "homepage": "https://github.com/jgerigmeyer/jquery-loading-overlay",
+  "author": {
+    "name": "Jonny Gerig Meyer",
+    "email": "jonny@oddbird.net",
+    "url": "http://oddbird.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jgerigmeyer/jquery-loading-overlay.git"
+  },
+  "bugs": "https://github.com/jgerigmeyer/jquery-loading-overlay/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jgerigmeyer/jquery-loading-overlay/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": ["loading", "overlay", "ajax"]
+}
