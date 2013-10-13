@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery Loading Overlay Demo</title>
+  <script src="../libs/jquery/jquery.js"></script>
+  <script src="../dist/loading-overlay.min.js"></script>
+  <link type="text/css" href="demo.css" rel="stylesheet"></link>
+</head>
+<body>
+  <div class="demo">
+    <button class="add-loading">Add loadingOverlay</button>
+    <button class="remove-loading">Remove loadingOverlay</button>
+    <label for="css-input">show with demo css</label>
+    <input type="checkbox" id="css-input" />
+    <div id="target"></div>
+    <div>
+      <div>
+        <h2>Javascript: </h2>
+        <pre>
+$('.add-loading').click(function () {
+  target.loadingOverlay();
+});
+$('.remove-loading').click(function () {
+  target.loadingOverlay('remove');
+});
+        </pre>
+      </div>
+      <div>
+        <h2>HTML without overlay: </h2>
+        <pre>&lt;div id="target"&gt;&lt;/div&gt;</pre>
+        <h2>HTML with overlay: </h2>
+        <pre>
+&lt;div id="target" class="loading"&gt;
+  &lt;div class="loading-overlay"&gt;
+    &lt;p class="loading-spinner"&gt;
+      &lt;span class="loading-icon"&gt;&lt;/span&gt;
+      &lt;span class="loading-text"&gt;loading&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+      </div>
+    </div>
+  </div>
+  <script>
+  jQuery(function ($) {
+    var target = $('#target');
+
+    $('.add-loading').click(function () {
+      target.loadingOverlay();
+    });
+
+    $('.remove-loading').click(function () {
+      target.loadingOverlay('remove');
+    });
+  });
+  </script>
+</body>
+</html>
