@@ -53,4 +53,5 @@ $('#target').loadingOverlay('remove', {
 
 ## Release History
 
+* 1.0.1 - (10/13/2013) Don't allow duplicate loading-overlays
 * 1.0.0 - (10/11/2013) Initial release
