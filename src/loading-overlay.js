@@ -19,13 +19,14 @@
                 '<span class="' + options.iconClass + '"></span>' +
                 '<span class="' + options.textClass + '">' + options.loadingText + '</span>' +
                 '</p></div>';
-            target.prepend($(overlay));
+            // Don't add duplicate loading-overlay
+            if (!target.data('loading-overlay')) { target.prepend($(overlay)).data('loading-overlay', true); }
             return target;
         },
 
         remove: function (opts) {
             var options = $.extend({}, $.fn.loadingOverlay.defaults, opts);
-            var target = $(this);
+            var target = $(this).data('loading-overlay', false);
             target.find('.' + options.overlayClass).detach();
             if (target.hasClass(options.loadingClass)) {
                 target.removeClass(options.loadingClass);

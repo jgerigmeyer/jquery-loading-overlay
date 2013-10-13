@@ -1,4 +1,4 @@
-/*! Loading Overlay - v1.0.0 - 2013-10-11
+/*! Loading Overlay - v1.0.1 - 2013-10-13
 * https://github.com/jgerigmeyer/jquery-loading-overlay
 * Copyright (c) 2013 Jonny Gerig Meyer; Licensed MIT */
 (function ($) {
@@ -14,13 +14,14 @@
                 '<span class="' + options.iconClass + '"></span>' +
                 '<span class="' + options.textClass + '">' + options.loadingText + '</span>' +
                 '</p></div>';
-            target.prepend($(overlay));
+            // Don't add duplicate loading-overlay
+            if (!target.data('loading-overlay')) { target.prepend($(overlay)).data('loading-overlay', true); }
             return target;
         },
 
         remove: function (opts) {
             var options = $.extend({}, $.fn.loadingOverlay.defaults, opts);
-            var target = $(this);
+            var target = $(this).data('loading-overlay', false);
             target.find('.' + options.overlayClass).detach();
             if (target.hasClass(options.loadingClass)) {
                 target.removeClass(options.loadingClass);
