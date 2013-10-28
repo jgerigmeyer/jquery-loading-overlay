@@ -14,8 +14,8 @@
     <label for="css-input">show with demo css</label>
     <input type="checkbox" id="css-input" />
     <div id="target"></div>
-    <div>
-      <div>
+    <div class="code-samples">
+      <div class="js">
         <h2>Javascript: </h2>
         <pre>
 $('.add-loading').click(function () {
@@ -26,7 +26,7 @@ $('.remove-loading').click(function () {
 });
         </pre>
       </div>
-      <div>
+      <div class="html">
         <h2>HTML without overlay: </h2>
         <pre>&lt;div id="target"&gt;&lt;/div&gt;</pre>
         <h2>HTML with overlay: </h2>
@@ -39,6 +39,162 @@ $('.remove-loading').click(function () {
     &lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+        </pre>
+      </div>
+      <div class="css">
+        <h2>Demo CSS: </h2>
+        <pre>
+@font-face {
+  font-family: "demo";
+  src: url('fonts/icons.woff') format("woff"), url('fonts/icons.ttf') format("truetype");
+}
+
+@-moz-keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes loading {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes loading {
+  0% {
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#target {
+  border: 2px solid black;
+  height: 400px;
+  width: 800px;
+}
+.loading {
+  position: relative;
+}
+
+#css-input:checked + .loading .loading-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-animation: loadingStart 3s 300ms linear 1 both;
+  -moz-animation: loadingStart 3s 300ms linear 1 both;
+  -o-animation: loadingStart 3s 300ms linear 1 both;
+  animation: loadingStart 3s 300ms linear 1 both;
+  background: rgba(255, 255, 255, 0.25);
+  text-align: center;
+}
+#css-input:checked + .loading .loading-text {
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  text-shadow: white 0 0 1em, white 0 0 0.5em, white 0 0 0.25em;
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#css-input:checked + .loading .loading-text:after {
+  content: "...";
+}
+#css-input:checked + .loading .loading-spinner {
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: -3.9375rem auto 0;
+  color: #1a1d1d;
+  text-align: center;
+}
+#css-input:checked + .loading .loading-icon {
+  font-size: 4.8125rem;
+  line-height: 5.25rem;
+  text-shadow: rgba(255, 255, 255, 0.75) 0 0 0.5em;
+  -webkit-animation: loading 1s steps(4) infinite;
+  -moz-animation: loading 1s steps(4) infinite;
+  -o-animation: loading 1s steps(4) infinite;
+  animation: loading 1s steps(4) infinite;
+  display: block;
+  vertical-align: middle;
+}
+#css-input:checked + .loading .loading-icon:before {
+  vertical-align: middle;
+  content: "\e000";
+  font-family: "demo";
+}
         </pre>
       </div>
     </div>
