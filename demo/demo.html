@@ -9,20 +9,26 @@
 </head>
 <body>
   <div class="demo">
-    <button class="add-loading">Add loadingOverlay</button>
-    <button class="remove-loading">Remove loadingOverlay</button>
-    <label for="css-input">show with demo css</label>
-    <input type="checkbox" id="css-input" />
-    <div id="target"></div>
+    <div class="demo-content">
+      <button class="toggle-loading">Toggle Overlay</button>
+      <input type="checkbox" id="css-input" checked />
+      <label for="css-input">show with demo css</label>
+      <div id="target"></div>
+    </div>
     <div class="code-samples">
       <div class="js">
         <h2>Javascript: </h2>
         <pre>
-$('.add-loading').click(function () {
-  target.loadingOverlay();
-});
-$('.remove-loading').click(function () {
-  target.loadingOverlay('remove');
+jQuery(function ($) {
+  var target = $('#target');
+
+  $('.toggle-loading').click(function () {
+    if (target.hasClass('loading')) {
+      target.loadingOverlay('remove');
+    } else {
+      target.loadingOverlay();
+    };
+  });
 });
         </pre>
       </div>
@@ -49,78 +55,12 @@ $('.remove-loading').click(function () {
   src: url('fonts/icons.woff') format("woff"), url('fonts/icons.ttf') format("truetype");
 }
 
-@-moz-keyframes loadingStart {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes loadingStart {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-o-keyframes loadingStart {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 @keyframes loadingStart {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
-  }
-}
-@-moz-keyframes loading {
-  0% {
-    -moz-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  50% {
-    -moz-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  100% {
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  50% {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-o-keyframes loading {
-  0% {
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  50% {
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  100% {
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
   }
 }
 @keyframes loading {
@@ -135,16 +75,12 @@ $('.remove-loading').click(function () {
   }
 }
 
-#target {
-  border: 2px solid black;
-  height: 400px;
-  width: 800px;
-}
 .loading {
   position: relative;
+  pointer-events: none;
 }
 
-#css-input:checked + .loading .loading-overlay {
+#css-input:checked ~ .loading .loading-overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -154,10 +90,10 @@ $('.remove-loading').click(function () {
   -moz-animation: loadingStart 3s 300ms linear 1 both;
   -o-animation: loadingStart 3s 300ms linear 1 both;
   animation: loadingStart 3s 300ms linear 1 both;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.5);
   text-align: center;
 }
-#css-input:checked + .loading .loading-text {
+#css-input:checked ~ .loading .loading-text {
   font-size: 0.875rem;
   line-height: 1.3125rem;
   text-shadow: white 0 0 1em, white 0 0 0.5em, white 0 0 0.25em;
@@ -166,10 +102,10 @@ $('.remove-loading').click(function () {
   text-transform: uppercase;
   font-weight: bold;
 }
-#css-input:checked + .loading .loading-text:after {
+#css-input:checked ~ .loading .loading-text:after {
   content: "...";
 }
-#css-input:checked + .loading .loading-spinner {
+#css-input:checked ~ .loading .loading-spinner {
   position: absolute;
   top: 50%;
   bottom: 0;
@@ -179,7 +115,7 @@ $('.remove-loading').click(function () {
   color: #1a1d1d;
   text-align: center;
 }
-#css-input:checked + .loading .loading-icon {
+#css-input:checked ~ .loading .loading-icon {
   font-size: 4.8125rem;
   line-height: 5.25rem;
   text-shadow: rgba(255, 255, 255, 0.75) 0 0 0.5em;
@@ -190,7 +126,7 @@ $('.remove-loading').click(function () {
   display: block;
   vertical-align: middle;
 }
-#css-input:checked + .loading .loading-icon:before {
+#css-input:checked ~ .loading .loading-icon:before {
   vertical-align: middle;
   content: "\e000";
   font-family: "demo";
@@ -203,12 +139,12 @@ $('.remove-loading').click(function () {
   jQuery(function ($) {
     var target = $('#target');
 
-    $('.add-loading').click(function () {
-      target.loadingOverlay();
-    });
-
-    $('.remove-loading').click(function () {
-      target.loadingOverlay('remove');
+    $('.toggle-loading').click(function () {
+      if (target.hasClass('loading')) {
+        target.loadingOverlay('remove');
+      } else {
+        target.loadingOverlay();
+      };
     });
   });
   </script>
