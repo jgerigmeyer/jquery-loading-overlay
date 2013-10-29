@@ -1,3 +1,5 @@
+/* Loading-overlay styles */
+
 @font-face {
   font-family: "demo";
   src: url('fonts/icons.woff') format("woff"), url('fonts/icons.ttf') format("truetype");
@@ -89,16 +91,12 @@
   }
 }
 
-#target {
-  border: 2px solid black;
-  height: 400px;
-  width: 800px;
-}
 .loading {
   position: relative;
+  pointer-events: none;
 }
 
-#css-input:checked + .loading .loading-overlay {
+#css-input:checked ~ .loading .loading-overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -108,10 +106,10 @@
   -moz-animation: loadingStart 3s 300ms linear 1 both;
   -o-animation: loadingStart 3s 300ms linear 1 both;
   animation: loadingStart 3s 300ms linear 1 both;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.5);
   text-align: center;
 }
-#css-input:checked + .loading .loading-text {
+#css-input:checked ~ .loading .loading-text {
   font-size: 0.875rem;
   line-height: 1.3125rem;
   text-shadow: white 0 0 1em, white 0 0 0.5em, white 0 0 0.25em;
@@ -120,10 +118,10 @@
   text-transform: uppercase;
   font-weight: bold;
 }
-#css-input:checked + .loading .loading-text:after {
+#css-input:checked ~ .loading .loading-text:after {
   content: "...";
 }
-#css-input:checked + .loading .loading-spinner {
+#css-input:checked ~ .loading .loading-spinner {
   position: absolute;
   top: 50%;
   bottom: 0;
@@ -133,7 +131,7 @@
   color: #1a1d1d;
   text-align: center;
 }
-#css-input:checked + .loading .loading-icon {
+#css-input:checked ~ .loading .loading-icon {
   font-size: 4.8125rem;
   line-height: 5.25rem;
   text-shadow: rgba(255, 255, 255, 0.75) 0 0 0.5em;
@@ -144,8 +142,109 @@
   display: block;
   vertical-align: middle;
 }
-#css-input:checked + .loading .loading-icon:before {
+#css-input:checked ~ .loading .loading-icon:before {
   vertical-align: middle;
   content: "\e000";
   font-family: "demo";
+}
+
+/* Demo page styles */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+}
+
+.demo {
+  min-width: 34em;
+  max-width: 52em;
+  margin: 1em auto;
+  padding: 1em;
+}
+
+.demo-content {
+  text-align: right;
+}
+
+#target {
+  clear: both;
+  width: 100%;
+  height: 2em;
+  margin-bottom: 1em;
+  padding: 0 0 55% 1em;
+  border: 2px solid black;
+  text-align: left;
+}
+
+#css-input:checked ~ #target {
+  background: url('http://placekitten.com/g/800/600') no-repeat;
+  background-size: cover;
+}
+
+.toggle-loading {
+  float: left;
+  margin-bottom: 1em;
+  padding: 1em 2em;
+  border: none;
+  border-radius: .25em;
+  background: pink;
+  font: inherit;
+  font-size: 1.25em;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  transition: all 150ms;
+}
+
+.toggle-loading:focus {
+  outline: none;
+  box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+}
+
+.toggle-loading:hover {
+  cursor: pointer;
+  background: #fd9297;
+}
+
+.toggle-loading:active {
+  background: #bc6d71;
+  box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.25) inset;
+}
+
+label[for="css-input"] {
+  display: inline-block;
+  padding-top: 3em;
+}
+
+pre {
+  overflow: auto;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace, serif;
+  font-size: .85em;
+  line-height: 1.5em;
+  color: grey;
+}
+
+.code-samples .js {
+  float: left;
+  width: 50%;
+  padding-right: 1em;
+  margin-bottom: 1em;
+}
+
+.code-samples .html {
+  float: right;
+  width: 50%;
+  padding-left: 1em;
+  border-left: 1px dashed;
+  border-color: grey;
+  margin-bottom: 1em;
+}
+
+.code-samples .css {
+  clear: both;
+  border-top: 1px dashed;
+  border-color: grey;
 }
