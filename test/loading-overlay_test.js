@@ -2,7 +2,7 @@
 
     module('loadingOverlay', {
         setup: function () {
-            this.container = $('#qunit-fixture');
+            this.container = $('#qunit-fixture #target');
             this.overlayHTML = '<div class="loading-overlay">' +
                 '<p class="loading-spinner">' +
                 '<span class="loading-icon"></span>' +
@@ -39,6 +39,21 @@
         this.container.loadingOverlay('remove');
 
         ok(!this.container.find('.loading-overlay').length, 'overlay has been removed from target');
+    });
+
+    test('adds data-loading-overlay to prevent duplicate overlays', 3, function () {
+        this.container.loadingOverlay();
+
+        ok(this.container.data('loading-overlay'), 'data-loading-overlay has been added to target');
+
+        this.container.loadingOverlay('remove');
+
+        ok(!this.container.data('loading-overlay'), 'data-loading-overlay has been removed from target');
+
+        this.container.data('loading-overlay', true);
+        this.container.loadingOverlay();
+
+        ok(!this.container.find('.loading-overlay').length, 'overlay has not been prepended to target');
     });
 
     test('can call "remove" on a container element', 4, function () {

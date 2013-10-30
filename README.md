@@ -27,6 +27,12 @@ jQuery(function($) {
 </script>
 ```
 
+## Demo
+
+See a [working example] of the loading-overlay in action, both with and without CSS styling.
+
+[working example]: http://jgerigmeyer.github.io/jquery-loading-overlay/demo/
+
 ## Documentation
 
 Available options, explictly set to their defaults:
