@@ -1,5 +1,5 @@
-/*! Loading Overlay - v1.0.1 - 2014-02-19
-* https://github.com/jgerigmeyer/jquery-loading-overlay
+/*! Loading Overlay - v1.0.2 - 2014-02-19
+* http://jgerigmeyer.github.io/jquery-loading-overlay/
 * Copyright (c) 2014 Jonny Gerig Meyer; Licensed MIT */
 (function ($) {
 

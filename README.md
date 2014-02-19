@@ -65,5 +65,6 @@ $('#target').loadingOverlay('remove', {
 
 ## Release History
 
+* 1.0.2 - (02/19/2014) Add bower.json
 * 1.0.1 - (10/13/2013) Don't allow duplicate loading-overlays
 * 1.0.0 - (10/11/2013) Initial release
