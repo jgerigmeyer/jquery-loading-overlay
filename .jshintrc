@@ -1,14 +1,22 @@
 {
+  "node": true,
+
+  "bitwise": true,
   "curly": true,
   "eqeqeq": true,
+  "forin": true,
   "immed": true,
+  "indent": 2,
   "latedef": true,
   "newcap": true,
   "noarg": true,
-  "sub": true,
+  "noempty": true,
+  "nonew": true,
+  "plusplus": true,
+  "quotmark": "single",
   "undef": true,
   "unused": true,
-  "boss": true,
-  "eqnull": true,
-  "node": true
+  "strict": true,
+  "trailing": true,
+  "maxparams": 4
 }
