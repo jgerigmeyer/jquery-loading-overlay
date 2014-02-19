@@ -12,15 +12,15 @@
         }
     });
 
-    test('init is chainable', 1, function () {
+    test('init is chainable', function () {
         ok(this.container.loadingOverlay().is(this.container), 'is chainable');
     });
 
-    test('remove is chainable', 1, function () {
+    test('remove is chainable', function () {
         ok(this.container.loadingOverlay('remove').is(this.container), 'is chainable');
     });
 
-    test('adds and removes loadingClass on target', 2, function () {
+    test('adds and removes loadingClass on target', function () {
         this.container.loadingOverlay({loadingClass: 'test-class'});
 
         ok(this.container.hasClass('test-class'), 'target has loadingClass');
@@ -30,7 +30,7 @@
         ok(!this.container.hasClass('test-class'), 'target no longer has loadingClass');
     });
 
-    test('prepends and removes overlay in target', 2, function () {
+    test('prepends and removes overlay in target', function () {
         this.container.loadingOverlay();
         var expected = this.overlay.get(0).outerHTML;
 
@@ -41,7 +41,7 @@
         ok(!this.container.find('.loading-overlay').length, 'overlay has been removed from target');
     });
 
-    test('adds data-loading-overlay to prevent duplicate overlays', 3, function () {
+    test('adds data-loading-overlay to prevent duplicate overlays', function () {
         this.container.loadingOverlay();
 
         ok(this.container.data('loading-overlay'), 'data-loading-overlay has been added to target');
@@ -56,7 +56,7 @@
         ok(!this.container.find('.loading-overlay').length, 'overlay has not been prepended to target');
     });
 
-    test('can call "remove" on a container element', 4, function () {
+    test('can call "remove" on a container element', function () {
         this.container.loadingOverlay();
 
         ok(this.container.find('.loading-overlay').length, 'overlay has been prepended to target');
@@ -80,27 +80,27 @@
         }
     });
 
-    test('if no args, calls init method', 1, function () {
+    test('if no args, calls init method', function () {
         this.container.loadingOverlay();
 
         ok(this.initStub.calledOnce, 'init was called once');
     });
 
-    test('if first arg is an object, calls init method with args', 2, function () {
+    test('if first arg is an object, calls init method with args', function () {
         this.container.loadingOverlay({test: 'data'}, 'more');
 
         ok(this.initStub.calledOnce, 'init was called once');
         ok(this.initStub.calledWith({test: 'data'}, 'more'), 'init was passed args');
     });
 
-    test('if first arg is a method, calls method with remaining args', 2, function () {
+    test('if first arg is a method, calls method with remaining args', function () {
         this.container.loadingOverlay('init', {test: 'data'}, 'more');
 
         ok(this.initStub.calledOnce, 'init was called once');
         ok(this.initStub.calledWith({test: 'data'}, 'more'), 'init was passed remaining args');
     });
 
-    test('if first arg not a method or object, returns an error', 3, function () {
+    test('if first arg not a method or object, returns an error', function () {
         sinon.stub($, 'error');
         this.container.loadingOverlay('test');
 
