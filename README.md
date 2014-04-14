@@ -1,5 +1,8 @@
 # Loading Overlay
 
+[![Build Status](https://travis-ci.org/jgerigmeyer/jquery-loading-overlay.svg?branch=master)](https://travis-ci.org/jgerigmeyer/jquery-loading-overlay)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+
 jQuery Loading Overlay Plugin
 
 Uses Javascript to add/remove a loading overlay to a target element. It can be
