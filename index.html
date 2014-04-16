@@ -31,9 +31,15 @@
         <h1>
 <a name="loading-overlay" class="anchor" href="#loading-overlay"><span class="octicon octicon-link"></span></a>Loading Overlay</h1>
 
+<p><a href="https://travis-ci.org/jgerigmeyer/jquery-loading-overlay"><img src="https://travis-ci.org/jgerigmeyer/jquery-loading-overlay.svg?branch=master" alt="Build Status"></a>
+<a href="http://gruntjs.com/"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt"></a></p>
+
 <p>jQuery Loading Overlay Plugin</p>
 
-<p>Uses Javascript to add/remove a loading overlay to a target element. It can be called on any element that should receive the loading overlay, and accepts options for class selectors and loading overlay text. The overlay itself must be styled via CSS.</p>
+<p>Uses Javascript to add/remove a loading overlay to a target element. It can be
+called on any element that should receive the loading overlay, and accepts
+options for class selectors and loading overlay text. The overlay itself must be
+styled via CSS.</p>
 
 <h2>
 <a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
@@ -46,15 +52,21 @@
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"dist/loading-overlay.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script&gt;</span>
 <span class="nx">jQuery</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Calling the plugin</span>
-    <span class="c1">// (prepends a div.loading to the target element)</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'#target'</span><span class="p">).</span><span class="nx">loadingOverlay</span><span class="p">();</span>
+  <span class="c1">// Calling the plugin</span>
+  <span class="c1">// (prepends a div.loading to the target element)</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#target'</span><span class="p">).</span><span class="nx">loadingOverlay</span><span class="p">();</span>
 
-    <span class="c1">// Removing the loading overlay</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'#target'</span><span class="p">).</span><span class="nx">loadingOverlay</span><span class="p">(</span><span class="s1">'remove'</span><span class="p">);</span>
+  <span class="c1">// Removing the loading overlay</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#target'</span><span class="p">).</span><span class="nx">loadingOverlay</span><span class="p">(</span><span class="s1">'remove'</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
 </pre></div>
+
+<h2>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>See a <a href="http://jgerigmeyer.github.io/jquery-loading-overlay/demo/">working example</a> of the loading-overlay in action, both with and without
+CSS styling.</p>
 
 <h2>
 <a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
@@ -62,20 +74,22 @@
 <p>Available options, explictly set to their defaults:</p>
 
 <div class="highlight highlight-html"><pre>$('#target').loadingOverlay({
-    loadingClass: 'loading',            // Class added to `target` while loading
-    overlayClass: 'loading-overlay',    // Class added to loading overlay (to be styled in CSS)
-    spinnerClass: 'loading-spinner',    // Class added to loading overlay spinner
-    iconClass: 'loading-icon',          // Class added to loading overlay spinner
-    textClass: 'loading-text',          // Class added to loading overlay spinner
-    loadingText: 'loading'              // Text within loading overlay
+  loadingClass: 'loading',          // Class added to target while loading
+  overlayClass: 'loading-overlay',  // Class added to overlay (style with CSS)
+  spinnerClass: 'loading-spinner',  // Class added to loading overlay spinner
+  iconClass: 'loading-icon',        // Class added to loading overlay spinner
+  textClass: 'loading-text',        // Class added to loading overlay spinner
+  loadingText: 'loading'            // Text within loading overlay
 });
 </pre></div>
 
-<p>NOTE: If <code>loadingClass</code> or <code>overlayClass</code> options are passed when initializing the loading overlay, the same options must be passed when removing that overlay:</p>
+<p>NOTE: If <code>loadingClass</code> or <code>overlayClass</code> options are passed when
+initializing the loading overlay, the same options must be passed when removing
+that overlay:</p>
 
 <div class="highlight highlight-html"><pre>$('#target').loadingOverlay('remove', {
-    loadingClass: 'loading',
-    overlayClass: 'loading-overlay'
+  loadingClass: 'loading',
+  overlayClass: 'loading-overlay'
 });
 </pre></div>
 
@@ -83,6 +97,7 @@
 <a name="release-history" class="anchor" href="#release-history"><span class="octicon octicon-link"></span></a>Release History</h2>
 
 <ul>
+<li>1.0.2 - (02/19/2014) Add bower.json</li>
 <li>1.0.1 - (10/13/2013) Don't allow duplicate loading-overlays</li>
 <li>1.0.0 - (10/11/2013) Initial release</li>
 </ul>
