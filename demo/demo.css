@@ -228,17 +228,13 @@ pre {
 }
 
 .code-samples .js {
-  float: left;
-  width: 50%;
-  padding-right: 1em;
+  clear: both;
   margin-bottom: 1em;
 }
 
 .code-samples .html {
-  float: right;
-  width: 50%;
-  padding-left: 1em;
-  border-left: 1px dashed;
+  clear: both;
+  border-top: 1px dashed;
   border-color: grey;
   margin-bottom: 1em;
 }
