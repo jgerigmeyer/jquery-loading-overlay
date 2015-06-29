@@ -1,11 +1,30 @@
 {
-  "name": "jquery-plugin",
-  "version": "0.0.0-ignored",
+  "name": "jquery-loading-overlay",
+  "version": "1.0.2",
+  "description": "jQuery Loading Overlay Plugin",
+  "keywords": [
+    "loading",
+    "overlay",
+    "ajax",
+    "jquery",
+    "jquery-plugin"
+  ],
+  "homepage": "http://jgerigmeyer.github.io/jquery-loading-overlay/",
+  "license": "MIT",
+  "author": "Jonny Gerig Meyer <jonny@oddbird.net>",
+  "main": "dist/loading-overlay.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgerigmeyer/jquery-loading-overlay"
+  },
   "engines": {
     "node": ">= 0.8.0"
   },
   "scripts": {
     "test": "grunt qunit"
+  },
+  "bugs": {
+    "url": "https://github.com/jgerigmeyer/jquery-loading-overlay/issues"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.10.0",
@@ -15,5 +34,8 @@
     "grunt-contrib-clean": "~0.5.0",
     "grunt": "~0.4.4",
     "grunt-qunit-istanbul": "~0.4.0"
+  },
+  "peerDependencies": {
+    "jquery": "*"
   }
 }
