@@ -1,6 +1,6 @@
-/*! Loading Overlay - v1.0.2 - 2014-02-19
+/*! Loading Overlay - v1.0.2 - 2016-01-06
 * http://jgerigmeyer.github.io/jquery-loading-overlay/
-* Copyright (c) 2014 Jonny Gerig Meyer; Licensed MIT */
+* Copyright (c) 2016 Jonny Gerig Meyer; Licensed MIT */
 (function ($) {
 
   'use strict';
@@ -24,7 +24,7 @@
     remove: function (options) {
       var opts = $.extend({}, $.fn.loadingOverlay.defaults, options);
       var target = $(this).data('loading-overlay', false);
-      target.find('.' + opts.overlayClass).detach();
+	  target.children('.' + opts.overlayClass).detach();
       if (target.hasClass(opts.loadingClass)) {
         target.removeClass(opts.loadingClass);
       } else {
