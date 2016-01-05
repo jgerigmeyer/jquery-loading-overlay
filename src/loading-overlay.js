@@ -29,7 +29,7 @@
     remove: function (options) {
       var opts = $.extend({}, $.fn.loadingOverlay.defaults, options);
       var target = $(this).data('loading-overlay', false);
-      target.find('.' + opts.overlayClass).detach();
+	  target.children('.' + opts.overlayClass).detach();
       if (target.hasClass(opts.loadingClass)) {
         target.removeClass(opts.loadingClass);
       } else {

@@ -64,10 +64,64 @@
     ok(this.container.find('.loading-overlay').length, 'overlay has been prepended to target');
     ok(this.container.hasClass('loading'), 'target has loadingClass');
 
-    $('body').loadingOverlay('remove');
+    this.container.loadingOverlay('remove');
 
     ok(!this.container.find('.loading-overlay').length, 'overlay has been removed from target');
     ok(!this.container.hasClass('loading'), 'target no longer has loadingClass');
+  });
+
+  module('nested loadingOverlay', {
+    setup: function () {
+      this.container = $('#qunit-fixture #target');
+      this.subContainer = $('#qunit-fixture #sub-target');
+    }
+  });
+
+  test('overlay can be added to parent and sub-container', function () {
+    this.container.loadingOverlay();
+    this.subContainer.loadingOverlay();
+
+    ok(this.container.find('.loading-overlay').length === 2, 'overlay has been added twice');
+    ok(this.container.children('.loading-overlay').length === 1, 'overlay has been added to target');
+    ok(this.subContainer.children('.loading-overlay').length === 1, 'overlay has been added to sub-target');
+
+    ok(this.container.hasClass('loading'), 'target has loadingClass');
+    ok(this.subContainer.hasClass('loading'), 'sub-target has loadingClass');
+  });
+
+  test('overlay can be removed from parent container only', function () {
+    this.container.loadingOverlay();
+    this.subContainer.loadingOverlay();
+
+    ok(this.container.find('.loading-overlay').length === 2, 'overlay has been added twice');
+
+    this.container.loadingOverlay('remove');
+
+    ok(this.container.find('.loading-overlay').length === 1, 'one overlay has been removed');
+
+    ok(!this.container.children('.loading-overlay').length, 'overlay has been removed from parent target');
+    ok(!this.container.hasClass('loading'), 'target no longer has loadingClass');
+
+    ok(this.subContainer.children('.loading-overlay').length === 1, 'overlay still exists on sub-target');
+    ok(this.subContainer.hasClass('loading'), 'sub-target still has loadingClass');
+  });
+
+  test('overlay can be removed from sub-container only', function () {
+    this.container.loadingOverlay();
+    this.subContainer.loadingOverlay();
+
+    ok(this.container.find('.loading-overlay').length === 2, 'overlay has been added twice');
+
+    this.subContainer.loadingOverlay('remove');
+
+    ok(this.container.find('.loading-overlay').length === 1, 'one overlay has been removed');
+
+    ok(this.container.children('.loading-overlay').length === 1, 'overlay still exists on target');
+    ok(this.container.hasClass('loading'), 'target still has loadingClass');
+
+    ok(!this.subContainer.children('.loading-overlay').length, 'overlay has been removed from sub-target');
+    ok(!this.subContainer.hasClass('loading'), 'sub-target no longer has loadingClass');
+
   });
 
 
